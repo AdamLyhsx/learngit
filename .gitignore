@@ -34,6 +34,7 @@ build/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+xlsx
 
 # Python:
 *.py[cod]
