@@ -34,7 +34,7 @@ build/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
-.xlsx
+*.xlsx
 
 # Python:
 *.py[cod]
@@ -47,7 +47,7 @@ build
 # My configurations:
 db.ini
 deploy_key_rsa
-.js
+*.js
 
 
 
