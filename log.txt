@@ -1,0 +1,1162 @@
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   84b0fb4 (HEAD -> master) conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d (origin/master) add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+* 5ee155a add 3 files.
+* dd22492 wrote a readme file
+
+E:\code_test\dataIO\gitio>git checkout -b dev
+Switched to a new branch 'dev'
+
+E:\code_test\dataIO\gitio>git add readme.txt
+
+E:\code_test\dataIO\gitio>git commit -m "add merge"
+[dev 9e05bcb] add merge
+ 1 file changed, 1 insertion(+)
+
+E:\code_test\dataIO\gitio>git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 4 commits.
+  (use "git push" to publish your local commits)
+
+E:\code_test\dataIO\gitio>git merge --no-ff -m "merge with no-ff" dev
+Merge made by the 'recursive' strategy.
+ readme.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+E:\code_test\dataIO\gitio>git log
+commit 72f39bde236675360883a0943f27eec2cc73cb2e (HEAD -> master)
+Merge: 84b0fb4 9e05bcb
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Sat Oct 19 16:10:51 2019 +0800
+
+    merge with no-ff
+
+commit 9e05bcbc300854731b2c3ad3cd53f14a52a55b39 (dev)
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Sat Oct 19 16:09:50 2019 +0800
+
+    add merge
+
+commit 84b0fb46c591b503d0ac367f1812409a0d4b7683
+Merge: 376dab9 1b3418a
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Thu Oct 17 21:51:08 2019 +0800
+
+    conflict fixed
+
+commit 376dab99fde6847132e52f92aa97e77eac8234bb
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Thu Oct 17 21:43:20 2019 +0800
+
+    & simple
+
+commit 1b3418a48507ee1498d00a86eff4a88bf03fef5e
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Thu Oct 17 21:33:41 2019 +0800
+
+E:\code_test\dataIO\gitio>
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   72f39bd (HEAD -> master) merge with no-ff
+|\
+| * 9e05bcb (dev) add merge
+|/
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d (origin/master) add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+* 5ee155a add 3 files.
+* dd22492 wrote a readme file
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git stash
+No local changes to save
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+E:\code_test\dataIO\gitio>git stash
+Saved working directory and index state WIP on master: 72f39bd merge with no-ff
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git checkout master
+Already on 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+E:\code_test\dataIO\gitio>git checkout -b issue-101
+Switched to a new branch 'issue-101'
+
+E:\code_test\dataIO\gitio>git add readme.txt
+
+E:\code_test\dataIO\gitio>git commit -m "fix bug 101"
+[issue-101 0a76022] fix bug 101
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\code_test\dataIO\gitio>git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 6 commits.
+  (use "git push" to publish your local commits)
+
+E:\code_test\dataIO\gitio>git merge --no-ff -m "merged bug fix 101" issue-101
+Merge made by the 'recursive' strategy.
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\code_test\dataIO\gitio>git branch
+  dev
+  issue-101
+* master
+
+E:\code_test\dataIO\gitio>git branch -d issue-101
+Deleted branch issue-101 (was 0a76022).
+
+E:\code_test\dataIO\gitio>git branch
+  dev
+* master
+
+E:\code_test\dataIO\gitio>git checkout dev
+Switched to branch 'dev'
+
+E:\code_test\dataIO\gitio>git status
+On branch dev
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git stash list
+stash@{0}: WIP on master: 72f39bd merge with no-ff
+
+E:\code_test\dataIO\gitio>git stash pop
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   readme.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Dropped refs/stash@{0} (ba814a672133f20484767af99522b2346ae333fb)
+
+E:\code_test\dataIO\gitio>git stash list
+
+E:\code_test\dataIO\gitio>it stash apply stash@{0}
+'it' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+E:\code_test\dataIO\gitio>git stash apply stash@{0}
+stash@{0} is not a valid reference
+
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+* 9e05bcb (HEAD -> dev) add merge
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d (origin/master) add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+* 5ee155a add 3 files.
+* dd22492 wrote a readme file
+
+E:\code_test\dataIO\gitio>git branch
+* dev
+  master
+
+E:\code_test\dataIO\gitio>git checkout master
+error: Your local changes to the following files would be overwritten by checkout:
+        readme.txt
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+E:\code_test\dataIO\gitio>git commit -m "xxx"
+On branch dev
+Changes not staged for commit:
+        modified:   readme.txt
+
+Untracked files:
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+no changes added to commit
+
+E:\code_test\dataIO\gitio>git add readme.txt
+
+E:\code_test\dataIO\gitio>git commit -m "xxx"
+[dev 5e3cb95] xxx
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\code_test\dataIO\gitio>git checkout master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 8 commits.
+  (use "git push" to publish your local commits)
+
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   92b7e0f (HEAD -> master) merged bug fix 101
+|\
+| * 0a76022 fix bug 101
+|/
+*   72f39bd merge with no-ff
+|\
+| * 9e05bcb add merge
+|/
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d (origin/master) add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+* 5ee155a add 3 files.
+* dd22492 wrote a readme file
+
+E:\code_test\dataIO\gitio>git checkout dev
+Switched to branch 'dev'
+
+E:\code_test\dataIO\gitio>git cherry-pick 92b7e0f
+error: commit 92b7e0fff179bb62519b52650cc24dd87bb30b4e is a merge but no -m option was given.
+fatal: cherry-pick failed
+
+E:\code_test\dataIO\gitio>git cherry-pick 72f39bd
+error: commit 72f39bde236675360883a0943f27eec2cc73cb2e is a merge but no -m option was given.
+fatal: cherry-pick failed
+
+E:\code_test\dataIO\gitio>git cherry-pick  0a76022
+[dev f82bd72] fix bug 101
+ Date: Sat Oct 19 16:22:55 2019 +0800
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\code_test\dataIO\gitio>git checkout -b feature-vulcan
+Switched to a new branch 'feature-vulcan'
+
+E:\code_test\dataIO\gitio>git add vulcan.py
+
+E:\code_test\dataIO\gitio>git add vulcan.py
+
+E:\code_test\dataIO\gitio>git status
+On branch feature-vulcan
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        new file:   vulcan.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+
+E:\code_test\dataIO\gitio>git commit -m "add feature vulcan"
+[feature-vulcan 2bf1095] add feature vulcan
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 vulcan.py
+
+E:\code_test\dataIO\gitio>git checkout dev
+Switched to branch 'dev'
+
+E:\code_test\dataIO\gitio>git branch -d feature-vulcan
+error: The branch 'feature-vulcan' is not fully merged.
+If you are sure you want to delete it, run 'git branch -D feature-vulcan'.
+
+E:\code_test\dataIO\gitio>git branch -D feature-vulcan
+Deleted branch feature-vulcan (was 2bf1095).
+
+E:\code_test\dataIO\gitio>git remote
+origin
+
+E:\code_test\dataIO\gitio>git remote -v
+origin  git@github.com:AdamLyhsx/learngit.git (fetch)
+origin  git@github.com:AdamLyhsx/learngit.git (push)
+
+E:\code_test\dataIO\gitio>git push origin master
+Warning: Permanently added the RSA host key for IP address '52.74.223.119' to the list of known hosts.
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (20/20), 1.63 KiB | 98.00 KiB/s, done.
+Total 20 (delta 15), reused 0 (delta 0)
+remote: Resolving deltas: 100% (15/15), completed with 2 local objects.
+To github.com:AdamLyhsx/learngit.git
+   e98dc4d..92b7e0f  master -> master
+
+E:\code_test\dataIO\gitio>git push origin dev
+Enumerating objects: 8, done.
+Counting objects: 100% (8/8), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 555 bytes | 50.00 KiB/s, done.
+Total 6 (delta 4), reused 0 (delta 0)
+remote: Resolving deltas: 100% (4/4), completed with 2 local objects.
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/AdamLyhsx/learngit/pull/new/dev
+remote:
+To github.com:AdamLyhsx/learngit.git
+ * [new branch]      dev -> dev
+
+E:\code_test\dataIO\gitio>git branch
+* dev
+  master
+
+E:\code_test\dataIO\gitio>cd ..\lyg
+
+E:\code_test\dataIO\lyg>git clone git@github.com:AdamLyhsx/learngit.git
+Cloning into 'learngit'...
+remote: Enumerating objects: 51, done.
+remote: Counting objects: 100% (51/51), done.
+remote: Compressing objects: 100% (18/18), done.
+remote: Total 51 (delta 29), reused 51 (delta 29), pack-reused 0
+Receiving objects: 100% (51/51), done.
+Resolving deltas: 100% (29/29), done.
+
+E:\code_test\dataIO\lyg>git checkout -b dev origin/dev
+fatal: not a git repository (or any of the parent directories): .git
+
+E:\code_test\dataIO\lyg>cd learngit
+
+E:\code_test\dataIO\lyg\learngit>git branch
+* master
+
+E:\code_test\dataIO\lyg\learngit>git checkout -b dev origin/dev
+Switched to a new branch 'dev'
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+
+E:\code_test\dataIO\lyg\learngit>git branch
+* dev
+  master
+
+E:\code_test\dataIO\lyg\learngit>git add env.txt
+
+E:\code_test\dataIO\lyg\learngit>git commit -m "add env"
+[dev 94663c9] add env
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 env.txt
+
+E:\code_test\dataIO\lyg\learngit>git push origin dev
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 256 bytes | 51.00 KiB/s, done.
+Total 2 (delta 1), reused 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To github.com:AdamLyhsx/learngit.git
+   f82bd72..94663c9  dev -> dev
+
+E:\code_test\dataIO\lyg\learngit>cd ..\..\gitio
+
+E:\code_test\dataIO\gitio>git branch
+* dev
+  master
+
+E:\code_test\dataIO\gitio>git add env.txt
+
+E:\code_test\dataIO\gitio>git commit -m "add new env"
+[dev acb0d5f] add new env
+ 1 file changed, 1 insertion(+)
+ create mode 100644 env.txt
+
+E:\code_test\dataIO\gitio>git push origin dev
+To github.com:AdamLyhsx/learngit.git
+ ! [rejected]        dev -> dev (fetch first)
+error: failed to push some refs to 'git@github.com:AdamLyhsx/learngit.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+E:\code_test\dataIO\gitio>git pull
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (1/1), done.
+remote: Total 2 (delta 1), reused 2 (delta 1), pack-reused 0
+Unpacking objects: 100% (2/2), done.
+From github.com:AdamLyhsx/learngit
+   f82bd72..94663c9  dev        -> origin/dev
+There is no tracking information for the current branch.
+Please specify which branch you want to merge with.
+See git-pull(1) for details.
+
+    git pull <remote> <branch>
+
+If you wish to set tracking information for this branch you can do so with:
+
+    git branch --set-upstream-to=origin/<branch> dev
+
+
+E:\code_test\dataIO\gitio>git branch --set-upstream-to=origin/dev dev
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+
+E:\code_test\dataIO\gitio>git pull
+Auto-merging env.txt
+Merge made by the 'recursive' strategy.
+
+E:\code_test\dataIO\gitio>git pull
+Already up to date.
+
+E:\code_test\dataIO\gitio>git commit -m "fix env conflict"
+On branch dev
+Your branch is ahead of 'origin/dev' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present
+
+E:\code_test\dataIO\gitio>git add env.txt
+
+E:\code_test\dataIO\gitio>git commit -m "fix env conflict"
+On branch dev
+Your branch is ahead of 'origin/dev' by 2 commits.
+  (use "git push" to publish your local commits)
+
+Untracked files:
+        code1.txt
+        hello.c
+        hello.py
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present
+
+E:\code_test\dataIO\gitio>git push origin dev
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 418 bytes | 52.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 1 local object.
+To github.com:AdamLyhsx/learngit.git
+   94663c9..a8f8462  dev -> dev
+
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   a8f8462 (HEAD -> dev, origin/dev) Merge branch 'dev' of github.com:AdamLyhsx/learngit into dev
+|\
+| * 94663c9 add env
+* | acb0d5f add new env
+|/
+* f82bd72 fix bug 101
+* 5e3cb95 xxx
+* 9e05bcb add merge
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+* 5ee155a add 3 files.
+* dd22492 wrote a readme file
+
+E:\code_test\dataIO\gitio>git branch
+* dev
+  master
+
+E:\code_test\dataIO\gitio>git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+E:\code_test\dataIO\gitio>git add env.txt
+fatal: pathspec 'env.txt' did not match any files
+
+E:\code_test\dataIO\gitio>git add hello.py
+
+E:\code_test\dataIO\gitio>git commit -m "init hello"
+[master 1f4485a] init hello
+ 1 file changed, 3 insertions(+)
+ create mode 100644 hello.py
+
+E:\code_test\dataIO\gitio>git add hello.py
+
+E:\code_test\dataIO\gitio>git commit -m "add comment"
+[master bb2ec52] add comment
+ 1 file changed, 1 insertion(+)
+
+E:\code_test\dataIO\gitio>git add hello.py
+
+E:\code_test\dataIO\gitio>git commit -m "add author"
+[master 108e919] add author
+ 1 file changed, 1 insertion(+)
+
+E:\code_test\dataIO\gitio>git push origin master
+To github.com:AdamLyhsx/learngit.git
+ ! [rejected]        master -> master (fetch first)
+error: failed to push some refs to 'git@github.com:AdamLyhsx/learngit.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+E:\code_test\dataIO\gitio>git pull
+remote: Enumerating objects: 7, done.
+remote: Counting objects: 100% (7/7), done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 6 (delta 2), reused 6 (delta 2), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+From github.com:AdamLyhsx/learngit
+   92b7e0f..e784f7a  master     -> origin/master
+error: Your local changes to the following files would be overwritten by merge:
+        hello.py
+Please commit your changes or stash them before you merge.
+Aborting
+
+E:\code_test\dataIO\gitio>git log --pretty=oneline
+108e919bbe706bd289df7cded9997804bcb52c2a (HEAD -> master) add author
+bb2ec520f5b30d970d3f4cfc2121f64b9b6f698d add comment
+1f4485a2dd4130c0858472121397628903ce1fe6 init hello
+92b7e0fff179bb62519b52650cc24dd87bb30b4e merged bug fix 101
+0a76022133c8dff8cdc8cec4aa105ee645161584 fix bug 101
+72f39bde236675360883a0943f27eec2cc73cb2e merge with no-ff
+9e05bcbc300854731b2c3ad3cd53f14a52a55b39 add merge
+84b0fb46c591b503d0ac367f1812409a0d4b7683 conflict fixed
+376dab99fde6847132e52f92aa97e77eac8234bb & simple
+1b3418a48507ee1498d00a86eff4a88bf03fef5e AND simple
+b0a2bafece86a5a943a5809cea8459e8790ffc85 branch test
+e98dc4df88ea15979cdde0901879353878aa9b20 add test.txt
+1f9a9995203a187929d18775bd239dc7c88051e6 of file
+9b5c397d78e4367e7039cd36eca07e5a1ac025cd git tracks changes
+f431f0546fd992c21662afdf61c0bd9d596095c3 understand how stage works
+ce10b88cda71926d906b35bf4bf58a655cdfe0d9 append GPL
+ac46bcb25c6c7554cf11ea710f046c532726078e add distributed
+5ee155a13d70924c7fc59cbabb7b7b00f4ee0473 add 3 files.
+dd224928963b8aef78d62535e7d79d483bc5809a wrote a readme file
+
+E:\code_test\dataIO\gitio>git reset --hard 108e919bbe
+HEAD is now at 108e919 add author
+
+E:\code_test\dataIO\gitio>git checkout -- readme.txt
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 3 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git push origin master
+To github.com:AdamLyhsx/learngit.git
+ ! [rejected]        master -> master (non-fast-forward)
+error: failed to push some refs to 'git@github.com:AdamLyhsx/learngit.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+E:\code_test\dataIO\gitio>git pull
+Auto-merging hello.py
+CONFLICT (add/add): Merge conflict in hello.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Your branch and 'origin/master' have diverged,
+and have 3 and 2 different commits each, respectively.
+  (use "git pull" to merge the remote branch into yours)
+
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+        both added:      hello.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+E:\code_test\dataIO\gitio>git add hello.py
+
+E:\code_test\dataIO\gitio>git commit -m "conflict fixed"
+[master 82b3ebc] conflict fixed
+
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   82b3ebc (HEAD -> master) conflict fixed
+|\
+| * e784f7a (origin/master) set exit=1
+| * bd29eb6 init hello
+* | 108e919 add author
+* | bb2ec52 add comment
+* | 1f4485a init hello
+|/
+*   92b7e0f merged bug fix 101
+|\
+| * 0a76022 fix bug 101
+|/
+*   72f39bd merge with no-ff
+|\
+| * 9e05bcb add merge
+|/
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+
+E:\code_test\dataIO\gitio>git push origin master
+Enumerating objects: 15, done.
+Counting objects: 100% (15/15), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (12/12), 1.08 KiB | 79.00 KiB/s, done.
+Total 12 (delta 5), reused 0 (delta 0)
+remote: Resolving deltas: 100% (5/5), completed with 1 local object.
+To github.com:AdamLyhsx/learngit.git
+   e784f7a..82b3ebc  master -> master
+
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   82b3ebc (HEAD -> master, origin/master) conflict fixed
+|\
+| * e784f7a set exit=1
+| * bd29eb6 init hello
+* | 108e919 add author
+* | bb2ec52 add comment
+* | 1f4485a init hello
+|/
+*   92b7e0f merged bug fix 101
+|\
+| * 0a76022 fix bug 101
+|/
+*   72f39bd merge with no-ff
+|\
+| * 9e05bcb add merge
+|/
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+
+E:\code_test\dataIO\gitio>git rebase
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to refs/remotes/origin/master.
+
+E:\code_test\dataIO\gitio>git log --graph --pretty=oneline --abbrev-commit
+*   82b3ebc (HEAD -> master, origin/master) conflict fixed
+|\
+| * e784f7a set exit=1
+| * bd29eb6 init hello
+* | 108e919 add author
+* | bb2ec52 add comment
+* | 1f4485a init hello
+|/
+*   92b7e0f merged bug fix 101
+|\
+| * 0a76022 fix bug 101
+|/
+*   72f39bd merge with no-ff
+|\
+| * 9e05bcb add merge
+|/
+*   84b0fb4 conflict fixed
+|\
+| * 1b3418a AND simple
+* | 376dab9 & simple
+|/
+* b0a2baf branch test
+* e98dc4d add test.txt
+* 1f9a999 of file
+* 9b5c397 git tracks changes
+* f431f05 understand how stage works
+* ce10b88 append GPL
+* ac46bcb add distributed
+
+E:\code_test\dataIO\gitio>git branch
+  dev
+* master
+
+E:\code_test\dataIO\gitio>git tag v1.0
+
+E:\code_test\dataIO\gitio>git tag
+v1.0
+
+E:\code_test\dataIO\gitio>git log --pretty=oneline --abbrev-commit
+82b3ebc (HEAD -> master, tag: v1.0, origin/master) conflict fixed
+e784f7a set exit=1
+bd29eb6 init hello
+108e919 add author
+bb2ec52 add comment
+1f4485a init hello
+92b7e0f merged bug fix 101
+0a76022 fix bug 101
+72f39bd merge with no-ff
+9e05bcb add merge
+84b0fb4 conflict fixed
+376dab9 & simple
+1b3418a AND simple
+b0a2baf branch test
+e98dc4d add test.txt
+1f9a999 of file
+9b5c397 git tracks changes
+f431f05 understand how stage works
+ce10b88 append GPL
+ac46bcb add distributed
+5ee155a add 3 files.
+dd22492 wrote a readme file
+
+E:\code_test\dataIO\gitio>git tag v0.9 1f4485a
+
+E:\code_test\dataIO\gitio>git tag
+v0.9
+v1.0
+
+E:\code_test\dataIO\gitio>git show v0.9
+commit 1f4485a2dd4130c0858472121397628903ce1fe6 (tag: v0.9)
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Sat Oct 19 21:04:10 2019 +0800
+
+    init hello
+
+diff --git a/hello.py b/hello.py
+new file mode 100644
+index 0000000..04bd604
+--- /dev/null
++++ b/hello.py
+@@ -0,0 +1,3 @@
++def hello():
++       init hello
++
+\ No newline at end of file
+
+E:\code_test\dataIO\gitio>git tag -a v0.1 -m "version 0.1 released" ac46bcb
+
+E:\code_test\dataIO\gitio>git show v0.1
+tag v0.1
+Tagger: AdamLyhsx <adamly@vip.qq.com>
+Date:   Sat Oct 19 22:10:23 2019 +0800
+
+version 0.1 released
+
+commit ac46bcb25c6c7554cf11ea710f046c532726078e (tag: v0.1)
+Author: AdamLyhsx <adamly@vip.qq.com>
+Date:   Wed Oct 16 21:58:59 2019 +0800
+
+    add distributed
+
+diff --git a/readme.txt b/readme.txt
+index ec548e1..a5fc558 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1,3 +1,3 @@
+-Git is a version control system.
++Git is a distributed version control system.
+ Git is free software.
+
+
+E:\code_test\dataIO\gitio>git tag -d v0.1
+Deleted tag 'v0.1' (was 2b73e1a)
+
+E:\code_test\dataIO\gitio>git push origin v1.0
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:AdamLyhsx/learngit.git
+ * [new tag]         v1.0 -> v1.0
+
+E:\code_test\dataIO\gitio>git push origin --tags
+Total 0 (delta 0), reused 0 (delta 0)
+To github.com:AdamLyhsx/learngit.git
+ * [new tag]         v0.9 -> v0.9
+
+E:\code_test\dataIO\gitio>git tag -d v0.9
+Deleted tag 'v0.9' (was 1f4485a)
+
+E:\code_test\dataIO\gitio>git push origin :refs/tags/v0.9
+To github.com:AdamLyhsx/learngit.git
+ - [deleted]         v0.9
+
+E:\code_test\dataIO\gitio>git remote add origin git@gitee.com:adamly/learngit.git
+fatal: remote origin already exists.
+
+E:\code_test\dataIO\gitio>git remote -v
+origin  git@github.com:AdamLyhsx/learngit.git (fetch)
+origin  git@github.com:AdamLyhsx/learngit.git (push)
+
+E:\code_test\dataIO\gitio>git remote rm origin
+
+E:\code_test\dataIO\gitio>git remote add github git@github.com:AdamLyhsx/learngit.git
+
+E:\code_test\dataIO\gitio>git remote add gitee git@gitee.com:adamly/learngit.git
+
+E:\code_test\dataIO\gitio>git remote -v
+gitee   git@gitee.com:adamly/learngit.git (fetch)
+gitee   git@gitee.com:adamly/learngit.git (push)
+github  git@github.com:AdamLyhsx/learngit.git (fetch)
+github  git@github.com:AdamLyhsx/learngit.git (push)
+
+E:\code_test\dataIO\gitio>git push github master
+Everything up-to-date
+
+E:\code_test\dataIO\gitio>git push gitee master
+The authenticity of host 'gitee.com (212.64.62.174)' can't be established.
+ECDSA key fingerprint is SHA256:FQGC9Kn/eye1W8icdBgrQp+KkGYoFgbVr17bmjey0Wc.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'gitee.com,212.64.62.174' (ECDSA) to the list of known hosts.
+Enumerating objects: 61, done.
+Counting objects: 100% (61/61), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (54/54), done.
+Writing objects: 100% (61/61), 4.84 KiB | 41.00 KiB/s, done.
+Total 61 (delta 30), reused 0 (delta 0)
+remote: Powered By Gitee.com
+To gitee.com:adamly/learngit.git
+ * [new branch]      master -> master
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        .gitignore
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git add  .gitignore
+
+E:\code_test\dataIO\gitio>git commit -m "gitignore"
+[master 9c8680c] gitignore
+ 1 file changed, 72 insertions(+)
+ create mode 100644 .gitignore
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   .gitignore
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+E:\code_test\dataIO\gitio>git add  .gitignore
+
+E:\code_test\dataIO\gitio>git commit -m "gitignore"
+[master 92528c3] gitignore
+ 1 file changed, 1 insertion(+)
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git add  .gitignore
+
+E:\code_test\dataIO\gitio>git commit -m "gitignore"
+[master 1c510f2] gitignore
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git add  .gitignore
+
+E:\code_test\dataIO\gitio>git commit -m "gitignore"
+[master afd2560] gitignore
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\code_test\dataIO\gitio>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+        code1.txt
+        hello.c
+        pipi.js
+        "\347\275\221\346\230\223\350\200\203\346\213\211\345\210\227\350\241\250\351\241\265\351\207\207\351\233\206_\350\256\241\347\256\227\346\234\272.xlsx"
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+E:\code_test\dataIO\gitio>git check-ignore
+fatal: no path specified
+
+E:\code_test\dataIO\gitio>git add  .gitignore
+
+E:\code_test\dataIO\gitio>git commit -m "gitignore"
+[master a784b01] gitignore
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+E:\code_test\dataIO\gitio>git add  .gitignore
+
+E:\code_test\dataIO\gitio>git commit -m "gitignore"
+On branch master
+Untracked files:
+        code1.txt
+        hello.c
+
+nothing added to commit but untracked files present
+
+E:\code_test\dataIO\gitio>git config --global alias.st status
+
+E:\code_test\dataIO\gitio>git config --global alias.co checkout
+
+E:\code_test\dataIO\gitio>git config --global alias.ci commit
+
+E:\code_test\dataIO\gitio>git config --global alias.br branch
+
+E:\code_test\dataIO\gitio>git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+E:\code_test\dataIO\gitio>lg
+'lg' 不是内部或外部命令，也不是可运行的程序
+或批处理文件。
+
+E:\code_test\dataIO\gitio>git lg
+* a784b01 - (HEAD -> master) gitignore (6 minutes ago) <AdamLyhsx>
+* afd2560 - gitignore (14 minutes ago) <AdamLyhsx>
+* 1c510f2 - gitignore (15 minutes ago) <AdamLyhsx>
+* 92528c3 - gitignore (15 minutes ago) <AdamLyhsx>
+* 9c8680c - gitignore (17 minutes ago) <AdamLyhsx>
+*   82b3ebc - (tag: v1.0, github/master, gitee/master) conflict fixed (2 hours ago) <AdamLyhsx>
+|\
+| * e784f7a - set exit=1 (3 hours ago) <AdamLyhsx>
+| * bd29eb6 - init hello (3 hours ago) <AdamLyhsx>
+* | 108e919 - add author (3 hours ago) <AdamLyhsx>
+* | bb2ec52 - add comment (3 hours ago) <AdamLyhsx>
+* | 1f4485a - init hello (3 hours ago) <AdamLyhsx>
+|/
+*   92b7e0f - merged bug fix 101 (7 hours ago) <AdamLyhsx>
+|\
+| * 0a76022 - fix bug 101 (7 hours ago) <AdamLyhsx>
+|/
+*   72f39bd - merge with no-ff (8 hours ago) <AdamLyhsx>
+|\
+| * 9e05bcb - add merge (8 hours ago) <AdamLyhsx>
+|/
+*   84b0fb4 - conflict fixed (2 days ago) <AdamLyhsx>
+|\
+| * 1b3418a - AND simple (2 days ago) <AdamLyhsx>
+* | 376dab9 - & simple (2 days ago) <AdamLyhsx>
+|/
+* b0a2baf - branch test (2 days ago) <AdamLyhsx>
+* e98dc4d - add test.txt (2 days ago) <AdamLyhsx>
+
+E:\code_test\dataIO\gitio>
+E:\code_test\dataIO\gitio>git add  good.txt
+fatal: pathspec 'good.txt' did not match any files
+
+E:\code_test\dataIO\gitio>git commit -m "goodbye"
+On branch master
+Untracked files:
+        code1.txt
+        goog.md
+        hello.c
+
+nothing added to commit but untracked files present
+
+E:\code_test\dataIO\gitio>git add  good.md
+fatal: pathspec 'good.md' did not match any files
+
+E:\code_test\dataIO\gitio>git commit -m "goodbye"
+On branch master
+Untracked files:
+        code1.txt
+        goog.md
+        hello.c
+
+nothing added to commit but untracked files present
+
+E:\code_test\dataIO\gitio>git add  good.md
+
+E:\code_test\dataIO\gitio>git commit -m "goodbye"
+[master 1a97ecc] goodbye
+ 1 file changed, 1 insertion(+)
+ create mode 100644 good.md
+
+E:\code_test\dataIO\gitio>git add  log.txt
+
+E:\code_test\dataIO\gitio>git commit -m "log"
+[master 9d2e291] log
+ 1 file changed, 1140 insertions(+)
+ create mode 100644 log.txt
+
+E:\code_test\dataIO\gitio>git push github master
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (21/21), 7.89 KiB | 179.00 KiB/s, done.
+Total 21 (delta 11), reused 0 (delta 0)
+remote: Resolving deltas: 100% (11/11), completed with 1 local object.
+To github.com:AdamLyhsx/learngit.git
+   82b3ebc..9d2e291  master -> master
+
+E:\code_test\dataIO\gitio>git push gitee master
+Enumerating objects: 22, done.
+Counting objects: 100% (22/22), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (20/20), done.
+Writing objects: 100% (21/21), 7.89 KiB | 237.00 KiB/s, done.
+Total 21 (delta 11), reused 0 (delta 0)
+remote: Powered By Gitee.com
+To gitee.com:adamly/learngit.git
+   82b3ebc..9d2e291  master -> master
+
+E:\code_test\dataIO\gitio>
